@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Upcoming Youth Events & Programs | Creative Youth Network</title>
+    <meta name="description" content="Discover upcoming workshops, mentorship programs, and community events for youth empowerment. Join us in creating meaningful opportunities.">
+    <meta name="keywords" content="youth events, upcoming programs, workshops for teens, mentorship opportunities, youth activities, community events">
+
+    <!-- Favicon -->
+    <link rel="icon" type="images/favicon.svg" href="images/favicon.svg" sizes="96x96" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://creativeyouthnetwork.org/events">
+    <meta property="og:title" content="Upcoming Youth Events & Programs | Creative Youth Network">
+    <meta property="og:description" content="Join our upcoming workshops and events designed to empower and inspire young people in our community.">
+    <meta property="og:image" content="https://creativeyouthnetwork.org/images/events-social-share.jpg">
+    <meta property="og:image:alt" content="Youth participating in Creative Youth Network event">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Upcoming Youth Events & Programs | Creative Youth Network">
+    <meta name="twitter:description" content="Discover empowering workshops and events for young people in our community.">
+    <meta name="twitter:image" content="https://creativeyouthnetwork.org/images/events-social-share.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://creativeyouthnetwork.org/events">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer">
+    
+    <link rel="stylesheet" href="styles/events.css">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="fonts/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="images/events-hero.jpg" as="image">
+
+   
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Youth<span>Network</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
+                    <li><a href="charity.html">Charity</a></li>
+                    <li><a href="about.html">About</a></li>
+                   
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+<main>
+    <!-- Hero Banner -->
+    <section class="events-hero">
+        <div class="container">
+            <h1>Upcoming Events</h1>
+            <p>Join our workshops, hackathons, and networking events to connect, learn, and grow with like-minded youth.</p>
+            <a href="#events" class="btn btn-outline">Browse Events</a>
+        </div>
+    </section>
+
+    <!-- Featured Event -->
+    <section class="container" style="padding-top: 0;">
+        <div class="featured-event">
+            <div class="featured-content">
+                <span class="featured-badge">Featured Event</span>
+                <h2>Youth Innovation Summit 2023</h2>
+                <p>The premier gathering for young innovators, creators, and change-makers. Three days of inspiration, workshops, and networking.</p>
+                <div class="featured-meta">
+                    <div><i class="fas fa-calendar-alt"></i> Nov 15-17, 2023</div>
+                    <div><i class="fas fa-map-marker-alt"></i> Convention Center</div>
+                    <div><i class="fas fa-users"></i> 500+ Attendees</div>
+                </div>
+                <a href="#" class="btn btn-primary">Register Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Filters -->
+    <section class="event-filters" id="events">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <i class="fas fa-filter"></i>
+                    <select id="event-category">
+                        <option value="all">All Categories</option>
+                        <option value="workshop">Workshops</option>
+                        <option value="hackathon">Hackathons</option>
+                        <option value="networking">Networking</option>
+                        <option value="conference">Conferences</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <i class="fas fa-calendar"></i>
+                    <select id="event-date">
+                        <option value="all">All Dates</option>
+                        <option value="this-week">This Week</option>
+                        <option value="this-month">This Month</option>
+                        <option value="next-month">Next Month</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select id="event-location">
+                        <option value="all">All Locations</option>
+                        <option value="online">Online</option>
+                        <option value="in-person">In-Person</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="active" data-view="grid"><i class="fas fa-th-large"></i></button>
+                    <button data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Grid/List -->
+    <section class="events-container">
+        <div class="container">
+            <div class="events-grid active" id="events-grid-view">
+                <!-- Event 1 -->
+                <div class="event-card" data-category="workshop" data-date="this-month" data-location="online">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge free">Free</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date"><i class="far fa-calendar-alt"></i> Jun 22, 2023 | 4:00 PM</div>
+                        <h3>Web Development Workshop</h3>
+                        <p>Learn HTML, CSS, and JavaScript basics in this hands-on workshop for beginners.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 2 Hours</span>
+                            <span><i class="fas fa-user"></i> 50 Spots Left</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="event-card" data-category="hackathon" data-date="next-month" data-location="in-person">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge upcoming">Upcoming</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date"><i class="far fa-calendar-alt"></i> Jul 8-9, 2023</div>
+                        <h3>24-Hour Hackathon</h3>
+                        <p>Build something amazing with a team and compete for prizes in our annual hackathon.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 24 Hours</span>
+                            <span><i class="fas fa-user"></i> 120 Participants</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Join Now</a>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="event-card" data-category="networking" data-date="this-week" data-location="hybrid">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge live">Live</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date"><i class="far fa-calendar-alt"></i> Jun 15, 2023 | 6:00 PM</div>
+                        <h3>Tech Professionals Mixer</h3>
+                        <p>Network with industry leaders and fellow tech enthusiasts in this casual evening event.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 3 Hours</span>
+                            <span><i class="fas fa-user"></i> 80+ Attending</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Attend</a>
+                    </div>
+                </div>
+                
+                <!-- Event 4 -->
+                <div class="event-card" data-category="workshop" data-date="this-month" data-location="online">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge free">Free</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date"><i class="far fa-calendar-alt"></i> Jun 28, 2023 | 5:30 PM</div>
+                        <h3>Personal Branding Masterclass</h3>
+                        <p>Learn how to build your personal brand and stand out in your career or business.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 1.5 Hours</span>
+                            <span><i class="fas fa-user"></i> 45 Spots Left</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <!-- Event 5 -->
+                <div class="event-card" data-category="conference" data-date="next-month" data-location="in-person">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge upcoming">Upcoming</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date"><i class="far fa-calendar-alt"></i> Jul 22, 2023 | All Day</div>
+                        <h3>Creative Minds Conference</h3>
+                        <p>A full-day event featuring talks and workshops from leading creatives in various fields.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 8 Hours</span>
+                            <span><i class="fas fa-user"></i> Early Bird Pricing</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Get Tickets</a>
+                    </div>
+                </div>
+                
+                <!-- Event 6 -->
+                <div class="event-card" data-category="workshop" data-date="this-month" data-location="hybrid">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge free">Free</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date"><i class="far fa-calendar-alt"></i> Jun 30, 2023 | 3:00 PM</div>
+                        <h3>Leadership Workshop</h3>
+                        <p>Develop essential leadership skills through interactive activities and group discussions.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 2 Hours</span>
+                            <span><i class="fas fa-user"></i> 30 Spots Left</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- List View (hidden by default) -->
+            <div class="events-list" id="events-list-view">
+                <!-- Event 1 - List View -->
+                <div class="event-card-list" data-category="workshop" data-date="this-month" data-location="online">
+                    <div class="event-image-list" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge free">Free</span>
+                    </div>
+                    <div class="event-content-list">
+                        <div class="event-meta-list">
+                            <span><i class="far fa-calendar-alt"></i> Jun 22, 2023 | 4:00 PM</span>
+                            <span><i class="fas fa-clock"></i> 2 Hours</span>
+                            <span><i class="fas fa-user"></i> 50 Spots Left</span>
+                        </div>
+                        <h3>Web Development Workshop</h3>
+                        <p>Learn HTML, CSS, and JavaScript basics in this hands-on workshop for beginners.</p>
+                        <a href="#" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <!-- Event 2 - List View -->
+                <div class="event-card-list" data-category="hackathon" data-date="next-month" data-location="in-person">
+                    <div class="event-image-list" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge upcoming">Upcoming</span>
+                    </div>
+                    <div class="event-content-list">
+                        <div class="event-meta-list">
+                            <span><i class="far fa-calendar-alt"></i> Jul 8-9, 2023</span>
+                            <span><i class="fas fa-clock"></i> 24 Hours</span>
+                            <span><i class="fas fa-user"></i> 120 Participants</span>
+                        </div>
+                        <h3>24-Hour Hackathon</h3>
+                        <p>Build something amazing with a team and compete for prizes in our annual hackathon.</p>
+                        <a href="#" class="btn btn-primary">Join Now</a>
+                    </div>
+                </div>
+                
+                <!-- Event 3 - List View -->
+                <div class="event-card-list" data-category="networking" data-date="this-week" data-location="hybrid">
+                    <div class="event-image-list" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge live">Live</span>
+                    </div>
+                    <div class="event-content-list">
+                        <div class="event-meta-list">
+                            <span><i class="far fa-calendar-alt"></i> Jun 15, 2023 | 6:00 PM</span>
+                            <span><i class="fas fa-clock"></i> 3 Hours</span>
+                            <span><i class="fas fa-user"></i> 80+ Attending</span>
+                        </div>
+                        <h3>Tech Professionals Mixer</h3>
+                        <p>Network with industry leaders and fellow tech enthusiasts in this casual evening event.</p>
+                        <a href="#" class="btn btn-primary">Attend</a>
+                    </div>
+                </div>
+                
+                <!-- Event 4 - List View -->
+                <div class="event-card-list" data-category="workshop" data-date="this-month" data-location="online">
+                    <div class="event-image-list" style="background-image: url('https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge free">Free</span>
+                    </div>
+                    <div class="event-content-list">
+                        <div class="event-meta-list">
+                            <span><i class="far fa-calendar-alt"></i> Jun 28, 2023 | 5:30 PM</span>
+                            <span><i class="fas fa-clock"></i> 1.5 Hours</span>
+                            <span><i class="fas fa-user"></i> 45 Spots Left</span>
+                        </div>
+                        <h3>Personal Branding Masterclass</h3>
+                        <p>Learn how to build your personal brand and stand out in your career or business.</p>
+                        <a href="#" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+                
+                <!-- Event 5 - List View -->
+                <div class="event-card-list" data-category="conference" data-date="next-month" data-location="in-person">
+                    <div class="event-image-list" style="background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge upcoming">Upcoming</span>
+                    </div>
+                    <div class="event-content-list">
+                        <div class="event-meta-list">
+                            <span><i class="far fa-calendar-alt"></i> Jul 22, 2023 | All Day</span>
+                            <span><i class="fas fa-clock"></i> 8 Hours</span>
+                            <span><i class="fas fa-user"></i> Early Bird Pricing</span>
+                        </div>
+                        <h3>Creative Minds Conference</h3>
+                        <p>A full-day event featuring talks and workshops from leading creatives in various fields.</p>
+                        <a href="#" class="btn btn-primary">Get Tickets</a>
+                    </div>
+                </div>
+                
+                <!-- Event 6 - List View -->
+                <div class="event-card-list" data-category="workshop" data-date="this-month" data-location="hybrid">
+                    <div class="event-image-list" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge free">Free</span>
+                    </div>
+                    <div class="event-content-list">
+                        <div class="event-meta-list">
+                            <span><i class="far fa-calendar-alt"></i> Jun 30, 2023 | 3:00 PM</span>
+                            <span><i class="fas fa-clock"></i> 2 Hours</span>
+                            <span><i class="fas fa-user"></i> 30 Spots Left</span>
+                        </div>
+                        <h3>Leadership Workshop</h3>
+                        <p>Develop essential leadership skills through interactive activities and group discussions.</p>
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-section">
+        <div class="container">
+            <h2 class="section-title">Event Calendar</h2>
+            <p class="section-subtitle">Browse events by date and never miss an opportunity to connect and learn.</p>
+            
+            <div class="calendar-container">
+                <div class="mini-calendar">
+                    <div class="calendar-header">
+                        <h3>June 2023</h3>
+                        <div class="calendar-nav">
+                            <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                            <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="calendar-days" id="calendar-days">
+                        <!-- Calendar days will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="calendar-events">
+                    <h3>Events on June 15, 2023</h3>
+                    <div class="event-card-list">
+                        <div class="event-image-list" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                            <span class="event-badge live">Live</span>
+                        </div>
+                        <div class="event-content-list">
+                            <div class="event-meta-list">
+                                <span><i class="far fa-calendar-alt"></i> Jun 15, 2023 | 6:00 PM</span>
+                                <span><i class="fas fa-clock"></i> 3 Hours</span>
+                                <span><i class="fas fa-user"></i> 80+ Attending</span>
+                            </div>
+                            <h3>Tech Professionals Mixer</h3>
+                            <p>Network with industry leaders and fellow tech enthusiasts in this casual evening event.</p>
+                            <a href="#" class="btn btn-primary">Attend</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events -->
+    <section class="past-events">
+        <div class="container">
+            <h2 class="section-title">Past Event Highlights</h2>
+            <p class="section-subtitle">Missed an event? Watch recordings of our most popular sessions.</p>
+            
+            <div class="past-event-card">
+                <div class="past-event-date">
+                    <div class="month">May</div>
+                    <div class="day">12</div>
+                </div>
+                <div class="past-event-content">
+                    <h3>Digital Marketing Workshop</h3>
+                    <p>Learn the fundamentals of social media marketing, SEO, and content creation from industry experts.</p>
+                    <a href="#" class="watch-now"><i class="fas fa-play"></i> Watch Recording</a>
+                </div>
+            </div>
+            
+            <div class="past-event-card">
+                <div class="past-event-date">
+                    <div class="month">Apr</div>
+                    <div class="day">28</div>
+                </div>
+                <div class="past-event-content">
+                    <h3>Career Fair 2023</h3>
+                    <p>Our biggest career fair yet with 50+ companies looking to hire young talent.</p>
+                    <a href="#" class="watch-now"><i class="fas fa-play"></i> Watch Highlights</a>
+                </div>
+            </div>
+            
+            <div class="past-event-card">
+                <div class="past-event-date">
+                    <div class="month">Mar</div>
+                    <div class="day">15</div>
+                </div>
+                <div class="past-event-content">
+                    <h3>Women in Tech Panel</h3>
+                    <p>Inspiring stories and advice from successful women in the technology industry.</p>
+                    <a href="#" class="watch-now"><i class="fas fa-play"></i> Watch Recording</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="events-cta">
+        <div class="container">
+            <h2>Have an Event Idea?</h2>
+            <p>We're always looking for fresh ideas and community partners to collaborate with.</p>
+            <a href="contact.html" class="btn btn-primary">Propose an Event</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <a id="ling" href="index.html" class="footer-logo">Youth<span>Network</span></a>
+                    <p>Empowering the next generation of leaders, creators, and innovators.</p>
+                    <div  class="social-links">
+                        <a id="ling" href="#"><i class="fab fa-instagram"></i></a>
+                        <a id="ling" href="#"><i class="fab fa-tiktok"></i></a>
+                        <div class="author-info">
+                            <h4>Amira Hassan</h4>
+                            <p>Youth Leadership Institute</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 6 - List View -->
+                <div class="event-card-list" data-category="workshop" data-date="this-month" data-location="hybrid">
+                    <div class="event-image-list" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <span class="event-badge free">Free</span>
+                    </div>
+                    <div class="event-content-list">
+                        <div class="event-meta-list">
+                            <span><i class="far fa-calendar-alt"></i> Jun 30, 2023 | 3:00 PM</span>
+                            <span><i class="fas fa-clock"></i> 2 Hrs</span>
+                            <span><i class="fas fa-user"></i> 30 Spots Left</span>
+                        </div>
+                        <h3>Leadership Workshop</h3>
+                        <p>Develop essential leadership skills through interactive activities and group discussions.</p>
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+    <!-- CTA Section -->
+    <section class="events-cta">
+        <div class="container">
+            <h2>Have an Event Idea?</h2>
+            <p>We're always looking for fresh ideas and community partners to collaborate with.</p>
+            <a href="contact.html" class="btn btn-primary">Propose an Event</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <a id="ling" href="index.html" class="footer-logo">Youth<span>Network</span></a>
+                    <p>Empowering the next generation of leaders, creators, and innovators.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="digital-skills.html">Digital Skills</a></li>
+                        <li><a href="entrepreneurship.html">Entrepreneurship</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="creative-lab.html">Creative Arts</a></li>
+                        <li><a href="career-launchpad.html">Career Prep</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for event updates and opportunities.</p>
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </div>
+            </div>
+            
+            <div class="partners">
+                <h3>Our Partners</h3>
+                <div class="partners">
+                    <img src="https://via.placeholder.com/100x40?text=TechCorp" alt="Partner Logo" class="partner-logo">
+                    <img src="https://via.placeholder.com/100x40?text=YouthFund" alt="Partner Logo" class="partner-logo">
+                    <img src="https://via.placeholder.com/100x40?text=EduFuture" alt="Partner Logo" class="partner-logo">
+                    <img src="https://via.placeholder.com/100x40?text=Innovate" alt="Partner Logo" class="partner-logo">
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Youth Network. All rights reserved. | <a id="ling" href="privacy.html">Privacy Policy</a> | <a id="ling" href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/events.js"></script>
+    </main>
+</body>
+</html>
