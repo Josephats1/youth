@@ -743,7 +743,7 @@
                 transform: translateY(0);
             }
         }
-        
+        .event-container{width: 80%; margin: auto; margin-top: 1px;}
         /* Mobile Styles */
         @media (max-width: 1024px) {
             .calendar-container {
@@ -781,10 +781,21 @@
             
           
         }
-        
+        @media (max-width: 480px) {
+  .featured-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .events-container,
+  .featured-event{width: 100%;}
+}
         @media (max-width: 768px) {
-        
-            
+         
             .events-hero {
                 padding: 150px 0 80px;
                 margin-top: 60px;

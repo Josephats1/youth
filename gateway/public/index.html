@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Payment Gateway</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+</head>
+<body>
+  <div class="payment-container">
+    <h1>Payment Gateway</h1>
+    <div class="tabs">
+      <button class="tab active" data-tab="credit-card">Credit/Debit Card</button>
+      <button class="tab" data-tab="paypal">PayPal</button>
+      <button class="tab" data-tab="crypto">Cryptocurrency</button>
+      <button class="tab" data-tab="mobile-money">Mobile Money</button>
+    </div>
+
+    <form id="payment-form">
+      <!-- Credit Card Section -->
+      <div class="payment-method active" id="credit-card">
+        <div class="form-group">
+          <label for="card-number">Card Number</label>
+          <div id="card-number" class="form-control"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="card-expiry">Expiration Date</label>
+            <div id="card-expiry" class="form-control"></div>
+          </div>
+          <div class="form-group">
+            <label for="card-cvc">CVC</label>
+            <div id="card-cvc" class="form-control"></div>
+          </div>
+        </div>
+        <div id="card-errors" role="alert"></div>
+      </div>
+
+      <!-- PayPal Section -->
+      <div class="payment-method" id="paypal">
+        <div id="paypal-button-container"></div>
+      </div>
+
+      <!-- Cryptocurrency Section -->
+      <div class="payment-method" id="crypto">
+        <div class="form-group">
+          <label for="crypto-currency">Select Cryptocurrency</label>
+          <select id="crypto-currency" class="form-control">
+            <option value="BTC">Bitcoin (BTC)</option>
+            <option value="ETH">Ethereum (ETH)</option>
+            <option value="USDT">Tether (USDT)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Payment Address</label>
+          <div id="crypto-address" class="crypto-address"></div>
+          <button type="button" id="generate-address" class="btn-secondary">Generate Address</button>
+          <div id="crypto-qr-code" class="qr-code"></div>
+        </div>
+      </div>
+
+      <!-- Mobile Money Section -->
+      <div class="payment-method" id="mobile-money">
+        <div class="form-group">
+          <label for="mobile-provider">Provider</label>
+          <select id="mobile-provider" class="form-control">
+            <option value="MTN">MTN Mobile Money</option>
+            <option value="Airtel">Airtel Money</option>
+            <option value="Vodafone">Vodafone Cash</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mobile-number">Phone Number</label>
+          <input type="tel" id="mobile-number" class="form-control" placeholder="+256XXXXXXXXX">
+        </div>
+        <button type="button" id="request-payment" class="btn-secondary">Request Payment</button>
+      </div>
+
+      <div class="form-group">
+        <label for="amount">Amount (USD)</label>
+        <input type="number" id="amount" class="form-control" min="1" value="10.00" step="0.01">
+      </div>
+
+      <button type="submit" id="submit-button" class="btn-primary">Pay $<span id="amount-display">10.00</span></button>
+    </form>
+  </div>
+
+  <script src="js/payment.js"></script>
+</body>
+</html>

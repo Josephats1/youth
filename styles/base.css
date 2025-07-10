@@ -441,12 +441,36 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 700;
+            color: #3333ff;
             margin-bottom: 10px;
         }
         
         .stat-label {
             font-size: 1.1rem;
         }
+        @media (max-width: 480px) {
+  .stats-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: 4px;
+    padding: 0 4px;
+    text-align: center;
+  }
+
+  .stat-item {
+    flex: 1;
+  }
+.stat-label{font-size: 12px;}
+  .stat-number {
+    font-size: 1rem;
+    font-weight: bold;
+    color: yellow;
+    margin-bottom: 2px;
+  }
+}
+
         
         /* CTA Section */
         .cta {
@@ -583,7 +607,7 @@
             color: #aaa;
             font-size: 0.9rem;
         }
-        
+        .logo{ height: 30px; width: 30px; border-radius: 50%;}
         .partners {
             display: flex;
             flex-wrap: wrap;
@@ -658,7 +682,7 @@
       
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .hero-btns {
@@ -676,10 +700,14 @@
             
             .cta-form input {
                 border-radius: 30px;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
             
             .cta-form button {
                 border-radius: 30px;
             }
+                 h2, h3, h4 {
+            margin-bottom: 14px;
+            
+        }
         }
