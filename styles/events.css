@@ -179,9 +179,9 @@
         /* Event Filters */
         .event-filters {
             background-color: white;
-            padding: 40px 0;
-            position: sticky;
-            top: 70px;
+            padding: 20px 0;
+            position: flex;
+            top: 40px;
             z-index: 100;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
@@ -198,7 +198,7 @@
             align-items: center;
             background: #f8f9fa;
             border-radius: 30px;
-            padding: 8px 15px;
+            padding: 6px 12px;
         }
         
         .filter-group i {
@@ -806,12 +806,12 @@
             }
             
             .filter-container {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: stretch;
             }
             
             .filter-group, .view-toggle {
-                width: 100%;
+                width: auto;
             }
             
             .event-card-list {
