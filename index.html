@@ -86,8 +86,12 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Programs</h2>
-                <p>Discover opportunities designed to help you grow and succeed in today's competitive world.</p>
-            </div>
+                <p>Discover opportunities designed to help you grow and succeed in today's competitive world.  <p class="sentence">
+    You must
+    <span id="animatedWord" class="animated-word">
+    <Br>
+             </p>
+           
             <div class="programs-grid">
                 <div class="program-card">
                     <div class="program-icon">
@@ -349,6 +353,36 @@
         </div>
     </footer>
 </main>
+ <script>
+    const words = ["Dream", "Build", "Inspire", "Create", "Shine"];
+    const container = document.getElementById("animatedWord");
+
+    let current = 0;
+
+    function animateWord(index) {
+      const word = words[index];
+      container.className = `animated-word word-${index}`;
+      container.innerHTML = "";
+
+      word.split('').forEach((letter, i) => {
+        const span = document.createElement("span");
+        span.classList.add("letter");
+        span.textContent = letter;
+        span.style.animationDelay = `${i * 0.2}s`;
+        container.appendChild(span);
+      });
+
+      // Go to next word
+      const totalDuration = word.length * 200 + 1500;
+      setTimeout(() => {
+        container.innerHTML = ""; // clear before next
+        current = (current + 1) % words.length;
+        animateWord(current);
+      }, totalDuration);
+    }
+
+    animateWord(current);
+  </script>
     <script src="scripts/base.js"></script>
 </body>
 </html>

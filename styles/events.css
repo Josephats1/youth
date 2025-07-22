@@ -810,10 +810,14 @@
                 align-items: stretch;
             }
             
-            .filter-group, .view-toggle {
+            .filter-group, 
+            .view-toggle {
+               
                 width: auto;
             }
-            
+            .event-meta-list{
+                font-size: 4px;
+            }
             .event-card-list {
                 flex-direction: column;
             }

@@ -711,3 +711,41 @@
             
         }
         }
+
+
+   .animated-word {
+  display: inline-block;
+  min-width: 7ch; /* Enough space for the longest word */
+  height: 1.5em;   /* Reserve vertical space to avoid jump on drop */
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 0.3rem;
+  vertical-align: bottom; /* Keep baseline alignment */
+  text-align: center;
+}
+
+.sentence{
+   margin-bottom: 2rem;
+}
+  .letter {
+  opacity: 0;
+  transform: translateY(-30px);
+  display: inline-block;
+  animation: drop 0.4s forwards;
+  line-height: 1.2;
+  will-change: transform, opacity;
+}
+
+    @keyframes drop {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .word-0 .letter { color: #e74c3c; }  /* Red */
+    .word-1 .letter { color: #3498db; }  /* Blue */
+    .word-2 .letter { color: #2ecc71; }  /* Green */
+    .word-3 .letter { color: #f1c40f; }  /* Yellow */
+    .word-4 .letter { color: #9b59b6; }  /* Purple */

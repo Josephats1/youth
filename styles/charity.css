@@ -175,7 +175,9 @@
             animation: fadeInUp 1s ease 0.3s forwards;
             opacity: 0;
         }
-        #key{color: deeppink; font-family: "Brush Script MTComma", Geneva, Tahoma, sans-serif;}
+
+
+        #key{color: deeppink;   font-family: 'Orbitron', cursive;}
         /* Orphanage Outreach Section */
         .orphanage-section {
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -800,3 +802,57 @@
                 flex-direction: column;
             }
         }
+        .sponsorship-section {
+  background: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sponsorship-section .title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.sponsorship-section .highlight {
+  color: #007bce; /* blue color */
+}
+
+.sponsorship-section .subtitle {
+  color: #555;
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.feature-box {
+  max-width: 300px;
+  text-align: center;
+}
+
+.feature-box img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.feature-box h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature-box p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
