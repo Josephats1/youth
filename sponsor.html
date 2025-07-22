@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsor a Child</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #2a5885;
+      --secondary-color: #e74c3c;
+      --accent-green: #2ecc71;
+      --accent-orange: #f39c12;
+      --accent-purple: #9b59b6;
+      --text-dark: #333;
+      --text-medium: #555;
+      --text-light: #777;
+      --bg-light: #f5f9fc;
+      --card-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      color: var(--text-dark);
+    }
+    
+    .sponsor-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .sponsor-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .sponsor-header h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 32px;
+    }
+
+    .sponsor-header p {
+      color: var(--text-medium);
+      margin: 0 auto 30px;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .sponsor-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-bottom: 30px;
+      background-color: var(--bg-light);
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 220px;
+      flex: 1;
+    }
+
+    .filter-group label {
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+    }
+
+    .filter-options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-options button {
+      padding: 10px 16px;
+      border: 1px solid #ddd;
+      background-color: white;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .filter-options button:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-1px);
+    }
+
+    .filter-options button.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+      box-shadow: 0 2px 5px rgba(42, 88, 133, 0.3);
+    }
+
+    .birthday-filters {
+      display: flex;
+      gap: 8px;
+    }
+
+    .birthday-filters select, 
+    #country-filter {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background-color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    
+    .birthday-filters select:hover,
+    #country-filter:hover {
+      border-color: #aaa;
+    }
+
+    .special-filters {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+      background-color: var(--bg-light);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .filter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .filter-tags .tag {
+      padding: 10px 16px;
+      background-color: #e9e9e9;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .filter-tags .tag:hover {
+      background-color: #ddd;
+      transform: translateY(-1px);
+    }
+
+    .filter-tags .tag.active {
+      background-color: var(--primary-color);
+      color: white;
+      box-shadow: 0 2px 5px rgba(42, 88, 133, 0.3);
+    }
+
+    .waiting-times {
+      display: flex;
+      gap: 20px;
+      color: var(--text-light);
+      font-size: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .waiting-times span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background-color: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+    }
+
+    .children-profiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .child-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .child-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .child-photo {
+      height: 240px;
+      background-color: #eee;
+      position: relative;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 18px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .waiting-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: rgba(231, 76, 60, 0.95);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+    }
+
+    .child-info {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .child-info h3 {
+      margin: 0 0 10px 0;
+      color: var(--primary-color);
+      font-size: 22px;
+    }
+
+    .child-info p {
+      margin: 8px 0;
+      color: var(--text-medium);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+
+    .sponsor-button {
+      margin-top: 20px;
+      padding: 14px 20px;
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .sponsor-button:hover {
+      background-color: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--text-light);
+      font-size: 18px;
+      grid-column: 1 / -1;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .no-results i {
+      font-size: 24px;
+      margin-bottom: 15px;
+      display: block;
+      color: var(--primary-color);
+    }
+
+    .special-needs-icons {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .special-need-icon {
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    
+    .special-need-icon:hover {
+      transform: scale(1.1);
+    }
+    
+    .special-need-icon.orphan {
+      background-color: var(--secondary-color);
+    }
+    
+    .special-need-icon.disability {
+      background-color: var(--accent-green);
+    }
+    
+    .special-need-icon.exploitation {
+      background-color: var(--accent-orange);
+    }
+    
+    .special-need-icon.hiv {
+      background-color: var(--accent-purple);
+    }
+    
+    .stats-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .stat-item i {
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .sponsor-section {
+        padding: 20px;
+      }
+      
+      .sponsor-filters {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      
+      .special-filters {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      
+      .waiting-times {
+        justify-content: flex-start;
+      }
+      
+      .children-profiles {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-bar {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sponsor-section">
+    <div class="sponsor-header">
+      <h2><i class="fas fa-hands-helping"></i> Sponsor a Child</h2>
+      <p>Sponsor a child in Jesus' name with Compassion International. Through child sponsorship you can help a child in need gain the means to survive. Help us reduce poverty by sponsoring a child.</p>
+    </div>
+    
+    <div class="stats-bar">
+      <div class="stat-item">
+        <i class="fas fa-users"></i>
+        <span>1,248 Children Sponsored This Month</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-globe-americas"></i>
+        <span>25 Countries Served</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-heart"></i>
+        <span>42,589 Total Sponsorships</span>
+      </div>
+    </div>
+
+    <div class="sponsor-filters">
+      <div class="filter-group">
+        <label><i class="fas fa-venus-mars"></i> I want to sponsor a:</label>
+        <div class="filter-options">
+          <button class="active" data-gender="male"><i class="fas fa-mars"></i> Boy</button>
+          <button data-gender="female"><i class="fas fa-venus"></i> Girl</button>
+          <button data-gender="any"><i class="fas fa-venus-mars"></i> Either</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label><i class="fas fa-birthday-cake"></i> Between the ages of:</label>
+        <div class="filter-options">
+          <button data-age="1-5">1-5</button>
+          <button data-age="6-10" class="active">6-10</button>
+          <button data-age="11-19">11-19</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label><i class="fas fa-globe-americas"></i> Who comes from:</label>
+        <select id="country-filter">
+          <option value="all">All Countries</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="Haiti">Haiti</option>
+          <option value="India">India</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Kenya">Kenya</option>
+          <option value="Philippines">Philippines</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label><i class="fas fa-calendar-alt"></i> Search by birthday</label>
+        <div class="birthday-filters">
+          <select id="birth-month">
+            <option value="all">Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <select id="birth-day">
+            <option value="all">Day</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="special-filters">
+      <div class="filter-tags">
+        <button class="tag active" data-special="all"><i class="fas fa-list"></i> All Children</button>
+        <button class="tag" data-special="orphan"><i class="fas fa-child"></i> Orphaned</button>
+        <button class="tag" data-special="disability"><i class="fas fa-wheelchair"></i> Disabilities</button>
+        <button class="tag" data-special="exploitation"><i class="fas fa-shield-alt"></i> At Risk</button>
+        <button class="tag" data-special="hiv"><i class="fas fa-medkit"></i> HIV/AIDS</button>
+      </div>
+      
+      <div class="waiting-times">
+        <span><i class="fas fa-clock"></i> Longest Waiting: 400+ days</span>
+        <span><i class="fas fa-child"></i> Most Vulnerable</span>
+        <span><i class="fas fa-heart"></i> Urgent Cases</span>
+      </div>
+    </div>
+
+    <div class="children-profiles" id="children-container">
+      <!-- Children will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    // Enhanced child data storage
+    const childrenData = [
+      {
+        id: 1,
+        name: "Sita Rahayu",
+        gender: "female",
+        age: 19,
+        birthday: "03-05",
+        country: "Indonesia",
+        daysWaiting: 260,
+        specialNeeds: ["orphan"],
+        image: "https://source.unsplash.com/random/300x220/?indonesian,girl,teenager",
+        bio: "Sita lost both parents in a tsunami. She dreams of becoming a teacher to help other children in her community."
+      },
+      {
+        id: 2,
+        name: "Epa Wijaya",
+        gender: "male",
+        age: 10,
+        birthday: "06-04",
+        country: "Indonesia",
+        daysWaiting: 328,
+        specialNeeds: ["disability"],
+        image: "https://source.unsplash.com/random/300x220/?indonesian,boy,disabled",
+        bio: "Epa was born with cerebral palsy but has an incredible spirit. He loves drawing and wants to be an artist."
+      },
+      {
+        id: 3,
+        name: "Nayoo Joseph",
+        gender: "female",
+        age: 5,
+        birthday: "10-25",
+        country: "Haiti",
+        daysWaiting: 326,
+        specialNeeds: ["exploitation"],
+        image: "https://source.unsplash.com/random/300x220/?haitian,girl,child",
+        bio: "Nayoo lives in extreme poverty and is at risk of child labor. She loves singing and playing with dolls."
+      },
+      {
+        id: 4,
+        name: "Rahul Patel",
+        gender: "male",
+        age: 8,
+        birthday: "02-14",
+        country: "India",
+        daysWaiting: 180,
+        specialNeeds: ["hiv"],
+        image: "https://source.unsplash.com/random/300x220/?indian,boy,child",
+        bio: "Rahul was born with HIV. Despite challenges, he excels in school and wants to be a doctor."
+      },
+      {
+        id: 5,
+        name: "Maria Silva",
+        gender: "female",
+        age: 12,
+        birthday: "07-22",
+        country: "Brazil",
+        daysWaiting: 400,
+        specialNeeds: ["orphan", "exploitation"],
+        image: "https://source.unsplash.com/random/300x220/?brazilian,girl,teenager",
+        bio: "Maria lives in a favela and cares for her younger siblings after losing both parents to violence."
+      },
+      {
+        id: 6,
+        name: "Diego Costa",
+        gender: "male",
+        age: 3,
+        birthday: "11-30",
+        country: "Brazil",
+        daysWaiting: 150,
+        specialNeeds: ["disability", "hiv"],
+        image: "https://source.unsplash.com/random/300x220/?brazilian,boy,toddler",
+        bio: "Diego has both HIV and developmental delays. He's full of love and responds well to therapy."
+      },
+      {
+        id: 7,
+        name: "Amina Abdi",
+        gender: "female",
+        age: 7,
+        birthday: "04-17",
+        country: "Kenya",
+        daysWaiting: 275,
+        specialNeeds: ["orphan"],
+        image: "https://source.unsplash.com/random/300x220/?kenyan,girl,child",
+        bio: "Amina's parents died from AIDS. She lives with her elderly grandmother and loves going to school."
+      },
+      {
+        id: 8,
+        name: "Juan Dela Cruz",
+        gender: "male",
+        age: 9,
+        birthday: "09-03",
+        country: "Philippines",
+        daysWaiting: 310,
+        specialNeeds: ["exploitation"],
+        image: "https://source.unsplash.com/random/300x220/?filipino,boy,child",
+        bio: "Juan works scavenging at a dump site to help his family. He dreams of a safe home and regular meals."
+      }
+    ];
+
+    // Current filter state
+    let currentFilters = {
+      gender: "male",
+      age: "6-10",
+      country: "all",
+      month: "all",
+      day: "all",
+      special: "all"
+    };
+
+    // DOM elements
+    const childrenContainer = document.getElementById('children-container');
+    const countryFilter = document.getElementById('country-filter');
+    const birthMonth = document.getElementById('birth-month');
+    const birthDay = document.getElementById('birth-day');
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Populate day dropdown
+      populateDays();
+      
+      // Render initial children
+      renderChildren(applyFilters());
+      
+      // Set up event listeners
+      setupEventListeners();
+    });
+
+    // Populate day dropdown
+    function populateDays() {
+      birthDay.innerHTML = '<option value="all">Day</option>';
+      for (let i = 1; i <= 31; i++) {
+        birthDay.innerHTML += `<option value="${i}">${i}</option>`;
+      }
+    }
+
+    // Set up event listeners
+    function setupEventListeners() {
+      // Gender buttons
+      document.querySelectorAll('[data-gender]').forEach(button => {
+        button.addEventListener('click', function() {
+          document.querySelectorAll('[data-gender]').forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          currentFilters.gender = this.dataset.gender;
+          updateDisplay();
+        });
+      });
+
+      // Age buttons
+      document.querySelectorAll('[data-age]').forEach(button => {
+        button.addEventListener('click', function() {
+          document.querySelectorAll('[data-age]').forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          currentFilters.age = this.dataset.age;
+          updateDisplay();
+        });
+      });
+
+      // Country dropdown
+      countryFilter.addEventListener('change', function() {
+        currentFilters.country = this.value;
+        updateDisplay();
+      });
+
+      // Birthday filters
+      birthMonth.addEventListener('change', function() {
+        currentFilters.month = this.value;
+        updateDisplay();
+      });
+
+      birthDay.addEventListener('change', function() {
+        currentFilters.day = this.value;
+        updateDisplay();
+      });
+
+      // Special filters
+      document.querySelectorAll('[data-special]').forEach(button => {
+        button.addEventListener('click', function() {
+          if (this.dataset.special === 'all') {
+            document.querySelectorAll('[data-special]').forEach(btn => btn.classList.remove('active'));
+          } else {
+            document.querySelector('[data-special="all"]').classList.remove('active');
+          }
+          this.classList.add('active');
+          currentFilters.special = this.dataset.special;
+          updateDisplay();
+        });
+      });
+    }
+
+    // Apply all current filters
+    function applyFilters() {
+      return childrenData.filter(child => {
+        // Gender filter
+        if (currentFilters.gender !== 'any' && child.gender !== currentFilters.gender) {
+          return false;
+        }
+
+        // Age filter
+        const [minAge, maxAge] = currentFilters.age.split('-').map(Number);
+        if (child.age < minAge || child.age > maxAge) {
+          return false;
+        }
+
+        // Country filter
+        if (currentFilters.country !== 'all' && child.country !== currentFilters.country) {
+          return false;
+        }
+
+        // Birthday month filter
+        if (currentFilters.month !== 'all') {
+          const childMonth = child.birthday.split('-')[0];
+          if (childMonth !== currentFilters.month.padStart(2, '0')) {
+            return false;
+          }
+        }
+
+        // Birthday day filter
+        if (currentFilters.day !== 'all') {
+          const childDay = child.birthday.split('-')[1];
+          if (childDay !== currentFilters.day.padStart(2, '0')) {
+            return false;
+          }
+        }
+
+        // Special needs filter
+        if (currentFilters.special !== 'all' && !child.specialNeeds.includes(currentFilters.special)) {
+          return false;
+        }
+
+        return true;
+      });
+    }
+
+    // Update the display based on current filters
+    function updateDisplay() {
+      const filteredChildren = applyFilters();
+      renderChildren(filteredChildren);
+      
+      // Update waiting times stats
+      updateWaitingStats(filteredChildren);
+    }
+
+    // Update waiting times statistics
+    function updateWaitingStats(children) {
+      if (children.length === 0) return;
+      
+      const longestWaiting = Math.max(...children.map(c => c.daysWaiting));
+      const mostVulnerable = children.reduce((prev, current) => 
+        (current.specialNeeds.length > prev.specialNeeds.length) ? current : prev
+      );
+      
+      const waitingTimes = document.querySelector('.waiting-times');
+      waitingTimes.innerHTML = `
+        <span><i class="fas fa-clock"></i> Longest Waiting: ${longestWaiting}+ days</span>
+        <span><i class="fas fa-child"></i> ${children.length} Matching Children</span>
+        <span><i class="fas fa-heart"></i> ${mostVulnerable.specialNeeds.length > 1 ? 'High Needs' : 'Urgent Cases'}</span>
+      `;
+    }
+
+    // Generate special needs icons HTML
+    function getSpecialNeedsIcons(specialNeeds) {
+      const icons = {
+        orphan: { icon: 'fa-child', label: 'Orphaned Child', class: 'orphan' },
+        disability: { icon: 'fa-wheelchair', label: 'Has Disabilities', class: 'disability' },
+        exploitation: { icon: 'fa-shield-alt', label: 'Vulnerable to Exploitation', class: 'exploitation' },
+        hiv: { icon: 'fa-medkit', label: 'Affected by HIV/AIDS', class: 'hiv' }
+      };
+      
+      return specialNeeds.map(need => `
+        <div class="special-need-icon ${icons[need].class}" title="${icons[need].label}">
+          <i class="fas ${icons[need].icon}"></i>
+        </div>
+      `).join('');
+    }
+
+    // Format birthday from MM-DD to Month DD
+    function formatBirthday(birthday) {
+      const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      const [month, day] = birthday.split('-');
+      return `${months[parseInt(month) - 1]} ${parseInt(day)}`;
+    }
+
+    // Calculate age from birthday (more accurate than static age)
+    function calculateAge(birthday) {
+      // In a real app, you would calculate from actual birthdate
+      // This is simplified for the demo
+      return birthday; // Using the stored age for demo purposes
+    }
+
+    // Render children to the DOM
+    function renderChildren(children) {
+      if (children.length === 0) {
+        childrenContainer.innerHTML = `
+          <div class="no-results">
+            <i class="fas fa-search"></i>
+            <p>No children match your current filters.</p>
+            <p>Please try different criteria or <a href="#" onclick="resetFilters()">reset all filters</a>.</p>
+          </div>
+        `;
+        return;
+      }
+
+      childrenContainer.innerHTML = children.map(child => `
+        <div class="child-card" data-id="${child.id}">
+          <div class="child-photo">
+            <div class="photo-placeholder" style="background-image: url('${child.image}')">
+              ${child.image.includes('placeholder') ? child.name : ''}
+            </div>
+            <div class="waiting-badge">
+              <i class="fas fa-clock"></i> ${child.daysWaiting} days
+            </div>
+            <div class="special-needs-icons">
+              ${getSpecialNeedsIcons(child.specialNeeds)}
+            </div>
+          </div>
+          <div class="child-info">
+            <h3>${child.name}</h3>
+            <p><i class="fas fa-birthday-cake"></i> ${formatBirthday(child.birthday)} - ${child.age} yrs old</p>
+            <p><i class="fas fa-globe-americas"></i> ${child.country}</p>
+            <p class="child-bio">${child.bio}</p>
+            <button class="sponsor-button" onclick="sponsorChild(${child.id})">
+              <i class="fas fa-heart"></i> Sponsor ${child.name.split(' ')[0]}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Sponsor a child function
+    function sponsorChild(childId) {
+      const child = childrenData.find(c => c.id === childId);
+      const modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.top = '0';
+      modal.style.left = '0';
+      modal.style.width = '100%';
+      modal.style.height = '100%';
+      modal.style.backgroundColor = 'rgba(0,0,0,0.7)';
+      modal.style.display = 'flex';
+      modal.style.justifyContent = 'center';
+      modal.style.alignItems = 'center';
+      modal.style.zIndex = '1000';
+      
+      modal.innerHTML = `
+        <div style="background: white; padding: 30px; border-radius: 10px; max-width: 500px; text-align: center;">
+          <h3 style="color: var(--primary-color); margin-top: 0;">Sponsor ${child.name}</h3>
+          <p>Thank you for choosing to sponsor ${child.name} from ${child.country}!</p>
+          <p>Your monthly sponsorship of <strong>$38</strong> will provide:</p>
+          <ul style="text-align: left; margin: 20px 0;">
+            <li>Education and school supplies</li>
+            <li>Nutritious meals and clean water</li>
+            <li>Medical care and health education</li>
+            <li>Spiritual guidance and mentorship</li>
+          </ul>
+          <div style="display: flex; gap: 10px; justify-content: center;">
+            <button onclick="this.parentElement.parentElement.remove()" style="padding: 10px 20px; background: #ddd; border: none; border-radius: 5px; cursor: pointer;">
+              Not Now
+            </button>
+            <button onclick="completeSponsorship(${child.id})" style="padding: 10px 20px; background: var(--secondary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
+              Continue to Sponsorship
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+    }
+
+    // Complete sponsorship process
+    function completeSponsorship(childId) {
+      alert(`Redirecting to sponsorship form for child ${childId}...`);
+      // In a real app, this would redirect to a checkout page
+      document.querySelectorAll('div[style*="position: fixed"]').forEach(el => el.remove());
+    }
+
+    // Reset all filters
+    function resetFilters() {
+      // Reset filter state
+      currentFilters = {
+        gender: "any",
+        age: "1-19",
+        country: "all",
+        month: "all",
+        day: "all",
+        special: "all"
+      };
+      
+      // Reset UI elements
+      document.querySelector('[data-gender="any"]').click();
+      document.querySelector('[data-age="6-10"]').click();
+      countryFilter.value = 'all';
+      birthMonth.value = 'all';
+      birthDay.value = 'all';
+      document.querySelector('[data-special="all"]').click();
+      
+      // Update display
+      updateDisplay();
+    }
+
+    // Expose functions to global scope for HTML onclick
+    window.sponsorChild = sponsorChild;
+    window.completeSponsorship = completeSponsorship;
+    window.resetFilters = resetFilters;
+  </script>
+</body>
+</html>
