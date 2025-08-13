@@ -6,6 +6,12 @@
             --light: #F8F9FA;
             --gradient: linear-gradient(135deg, #FF6B6B, #4ECDC4);
             --gradient-vibrant: linear-gradient(135deg, #ff00cc, #3333ff, #00ccff);
+                --primary-bg: #e0e5ec;
+            --primary-text: #2d3436;
+            --accent-color: #6c5ce7;
+            --shadow-light: rgba(255, 255, 255, 0.8);
+            --shadow-dark: rgba(163, 177, 198, 0.6);
+            --card-radius: 20px;
         }
         
         * {
@@ -293,89 +299,302 @@
 .value-card p {
   color: #555;
 }
-
-        /* Team Section */
-        .team-section {
-            background-color: white;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .team-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .team-image {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .team-content {
-            padding: 25px;
-        }
-        
-        .team-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 4px;
-            color: var(--dark);
-        }
-        
-        .team-content p.position {
-            color: deeppink;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .team-content p.bio {
-            color: #666;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-        .social-links{ text-decoration: none !important;}
-        
-.social-links i {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: black;
-  display: flex;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 18px;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  box-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff inset;
+/* Quantum Neomorphic Team CSS - Complete Styling */
+:root {
+    --quantum-primary: #0a192f;
+    --quantum-secondary: #172a45;
+    --quantum-accent: #64ffda;
+    --quantum-text: #ccd6f6;
+    --quantum-subtext: #8892b0;
+    --quantum-shadow-dark: rgba(2, 12, 27, 0.7);
+    --quantum-shadow-light: rgba(100, 255, 218, 0.1);
+    --quantum-glow: 0 0 10px rgba(100, 255, 218, 0.5);
 }
 
-.social-links i:hover {
-  color: #fff;
-  background: #4CAF50;
-  box-shadow: 0 0 10px #00f0ff, 0 0 20px #ff00c8;
-  transform: scale(1.1);
+#quantum-team {
+    background: linear-gradient(135deg, var(--quantum-primary), var(--quantum-secondary));
+    padding: 5rem 1rem;
+    position: relative;
+    overflow: hidden;
 }
 
+#quantum-team::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, var(--quantum-shadow-light) 0%, transparent 50%);
+    pointer-events: none;
+}
 
+.neo-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 1rem;
+}
 
-        
+/* Header Styles */
+#team-heading.neo-section-title {
+    font-size: 2.5rem;
+    color: var(--quantum-text);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+#team-heading.neo-section-title::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 3px;
+    background: var(--quantum-accent);
+    margin: 1rem auto;
+    box-shadow: var(--quantum-glow);
+}
+
+#team-subhead.neo-section-subtitle {
+    color: var(--quantum-subtext);
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Card Grid Layout */
+/* Update the grid layout for 8 cards */
+#team-matrix.neo-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* For wider screens - 4 columns */
+@media (min-width: 1400px) {
+    #team-matrix.neo-team-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* For medium screens - 2 columns */
+@media (max-width: 1399px) and (min-width: 768px) {
+    #team-matrix.neo-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* For mobile - 1 column */
+@media (max-width: 767px) {
+    #team-matrix.neo-team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Individual Card Styling */
+.neo-card {
+    width: 100%;
+    background: rgba(10, 25, 47, 0.7);
+    border-radius: 15px;
+    padding: 1.8rem 1.5rem;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(100, 255, 218, 0.15);
+    box-shadow: 0 10px 25px var(--quantum-shadow-dark),
+                inset 0 0 20px rgba(100, 255, 218, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.neo-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(100, 255, 218, 0) 0%,
+        rgba(100, 255, 218, 0.1) 50%,
+        rgba(100, 255, 218, 0) 100%
+    );
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.neo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px var(--quantum-shadow-dark),
+                inset 0 0 25px rgba(100, 255, 218, 0.2);
+    border-color: rgba(100, 255, 218, 0.3);
+}
+
+/* Profile Image Styling */
+.neo-profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border: 2px solid var(--quantum-accent);
+    box-shadow: var(--quantum-glow);
+    overflow: hidden;
+}
+
+.neo-holo-ring {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--quantum-accent);
+    border-right-color: var(--quantum-accent);
+    animation: spinHolo 8s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes spinHolo {
+    0% { transform: rotate(0deg); opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { transform: rotate(360deg); opacity: 0.8; }
+}
+
+/* Card Content Styling */
+.neo-info {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.neo-name {
+    font-size: 1.4rem;
+    color: var(--quantum-text);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.neo-role {
+    color: var(--quantum-accent);
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.neo-role::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--quantum-accent);
+    opacity: 0.5;
+}
+
+.neo-bio {
+    color: var(--quantum-subtext);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+    min-height: 60px;
+    font-weight: 300;
+}
+
+/* Social Links Styling */
+.neo-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.neo-social-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--quantum-accent);
+    background: transparent;
+    border: 1px solid var(--quantum-accent);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+.neo-social-btn:hover {
+    background: var(--quantum-accent);
+    color: var(--quantum-primary);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.4);
+}
+
+.neo-social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.neo-social-btn:hover::before {
+    left: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    #team-matrix.neo-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .neo-card {
+        padding: 2rem;
+    }
+    
+    .neo-profile {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    #team-matrix.neo-team-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        gap: 2.5rem;
+    }
+    
+    #team-heading.neo-section-title {
+        font-size: 2.2rem;
+    }
+    
+    .neo-card {
+        padding: 2.2rem;
+    }
+}
+/* Keep all other existing styles (hover effects, animations etc.) */
         /* Story Timeline */
         .story-section {
             background-color: #f8f9fa;

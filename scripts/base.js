@@ -7,6 +7,18 @@
                 header.classList.remove('scrolled');
             }
         });
+        //emergencies
+        document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 15;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 15;
+        card.style.transform = `translateY(-10px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(-10px)';
+    });
+});
 
         // Animated counters
         function animateCounters() {
@@ -63,3 +75,32 @@
                 }
             });
         });
+        
+            const words = ["Dream", "Build", "Inspire", "Create", "Shine"];
+    const container = document.getElementById("animatedWord");
+
+    let current = 0;
+
+    function animateWord(index) {
+      const word = words[index];
+      container.className = `animated-word word-${index}`;
+      container.innerHTML = "";
+
+      word.split('').forEach((letter, i) => {
+        const span = document.createElement("span");
+        span.classList.add("letter");
+        span.textContent = letter;
+        span.style.animationDelay = `${i * 0.2}s`;
+        container.appendChild(span);
+      });
+
+      // Go to next word
+      const totalDuration = word.length * 200 + 1500;
+      setTimeout(() => {
+        container.innerHTML = ""; // clear before next
+        current = (current + 1) % words.length;
+        animateWord(current);
+      }, totalDuration);
+    }
+
+    animateWord(current);

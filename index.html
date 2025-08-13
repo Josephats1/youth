@@ -80,6 +80,104 @@
             </div>
         </div>
     </section>
+    <!--   AGENT SERVICES SECTION -->
+    <section class="crisis-support-section">
+  <div class="crisis-content">
+    <div class="image-wrapper">
+      <img src="images/counsel.jpg" 
+           alt="Compassionate hand holding someone's hand" 
+           class="support-image">
+    </div>
+    
+    <h2>"Your Healing Starts Here"</h2>
+    <p class="tagline">When <span class="highlight">trauma</span> overwhelms, when <span class="highlight">abuse</span> hurts, when <span class="highlight">depression</span> darkens - we stand with you. Free professional support is just one click away. <br>
+        Get guidence and counseling from a therapist, a person who understand anything just like you
+    </p>
+    
+    <div class="cta-buttons">
+      <a href="tel:+1800HOPE-NOW" class="emergency-btn">
+        <div class="btn-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="btn-text">
+          <span class="btn-label">24/7 Crisis Line</span>
+          <span class="btn-number">1800-Lets-Talk</span>
+        </div>
+      </a>
+      
+      <a href="https://wa.me/1800HHELP-ME?text=I%20need%20help" class="whatsapp-btn">
+        <div class="btn-icon">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="btn-text">
+          <span class="btn-label">Instant Chat Support</span>
+          <span class="btn-number">Tell Me, Dear</span>
+        </div>
+      </a>
+    </div>
+    
+    <p class="assurance">
+      <i class="fas fa-lock"></i> 100% confidential • <i class="fas fa-heart"></i> Non-judgmental • <i class="fas fa-hand-holding-heart"></i> Free forever
+    </p>
+  </div>
+</section>
+
+ <!--   EMERGENCY SERVICES SECTION -->
+<section class="emergency-services">
+      <h2>Emergency Services</h2>
+    <div class="services-container">
+        
+        <!-- Disaster Response -->
+        <div class="service-card floating" id="disaster-response">
+            <i class="fas fa-bolt service-icon"></i>
+            <h2 class="service-header">Disaster Response</h2>
+            <p class="service-description">
+                Our rapid deployment teams provide immediate relief with cutting-edge technology and AI-powered damage assessment.
+            </p>
+            <button class="service-btn">Learn More</button>
+        </div>
+
+        <!-- Medical Emergency -->
+        <div class="service-card floating delay-1" id="medical-emergency">
+            <i class="fas fa-heartbeat service-icon"></i>
+            <h2 class="service-header">Medical Emergency</h2>
+            <p class="service-description">
+                Telemedicine-equipped mobile units with drone-delivered medical supplies for critical situations.
+            </p>
+            <button class="service-btn">Learn More</button>
+        </div>
+
+        <!-- Search & Rescue -->
+        <div class="service-card floating delay-2" id="search-rescue">
+            <i class="fas fa-search-location service-icon"></i>
+            <h2 class="service-header">Search & Rescue</h2>
+            <p class="service-description">
+                Thermal imaging drones and robotic units working alongside our expert rescue teams.
+            </p>
+            <button class="service-btn">Learn More</button>
+        </div>
+
+        <!-- Refugee Support -->
+        <div class="service-card floating delay-3" id="refugee-support">
+            <i class="fas fa-people-carry service-icon"></i>
+            <h2 class="service-header">Refugee Support</h2>
+            <p class="service-description">
+                Smart shelters with biometric identification and blockchain-based aid distribution systems.
+            </p>
+            <button class="service-btn">Learn More</button>
+        </div>
+
+        <!-- Public Health -->
+        <div class="service-card floating delay-4" id="public-health">
+            <i class="fas fa-shield-virus service-icon"></i>
+            <h2 class="service-header">Public Health</h2>
+            <p class="service-description">
+                Predictive analytics and IoT-enabled disease surveillance for proactive epidemic prevention.
+            </p>
+            <button class="service-btn">Learn More</button>
+        </div>
+    </div>
+</section>
 
     <!-- Programs Section -->
     <section class="programs">
@@ -337,52 +435,15 @@
                 </div>
             </div>
             
-            <div class="partners">
-                <h3>Our Partners</h3>
-                <div class="partners">
-                    <img src="https://via.placeholder.com/100x40?text=TechCorp" alt="Partner Logo" class="partner-logo">
-                    <img src="https://via.placeholder.com/100x40?text=YouthFund" alt="Partner Logo" class="partner-logo">
-                    <img src="https://via.placeholder.com/100x40?text=EduFuture" alt="Partner Logo" class="partner-logo">
-                    <img src="https://via.placeholder.com/100x40?text=Innovate" alt="Partner Logo" class="partner-logo">
-                </div>
-            </div>
+           
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Youth Network. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <p>&copy; 2025 Creative Youth Network. All rights reserved. </p>
             </div>
         </div>
     </footer>
 </main>
- <script>
-    const words = ["Dream", "Build", "Inspire", "Create", "Shine"];
-    const container = document.getElementById("animatedWord");
 
-    let current = 0;
-
-    function animateWord(index) {
-      const word = words[index];
-      container.className = `animated-word word-${index}`;
-      container.innerHTML = "";
-
-      word.split('').forEach((letter, i) => {
-        const span = document.createElement("span");
-        span.classList.add("letter");
-        span.textContent = letter;
-        span.style.animationDelay = `${i * 0.2}s`;
-        container.appendChild(span);
-      });
-
-      // Go to next word
-      const totalDuration = word.length * 200 + 1500;
-      setTimeout(() => {
-        container.innerHTML = ""; // clear before next
-        current = (current + 1) % words.length;
-        animateWord(current);
-      }, totalDuration);
-    }
-
-    animateWord(current);
-  </script>
     <script src="scripts/base.js"></script>
 </body>
 </html>
