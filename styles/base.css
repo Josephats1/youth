@@ -198,6 +198,7 @@
         }
 /* ======================== Call For Help Section ======================== */
 .crisis-support-section {
+    background-image: url('../images/depressed.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -218,7 +219,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 12, 41, 0.7) 0%, rgba(48, 43, 99, 0.7) 50%, rgba(36, 36, 62, 0.7) 100%);
+
   z-index: 0;
 }
 
@@ -293,7 +294,7 @@
 
 .emergency-btn, .whatsapp-btn {
   padding: 8px;
-  width: 80%;
+  width: 50%;
   align-items: center;
   border-radius: 18px;
   font-weight: 600;
@@ -398,7 +399,7 @@
   }
   
   .emergency-btn, .whatsapp-btn {
-    width: 85%;
+    width:51%;
   }
   
   .btn-icon {
@@ -451,7 +452,7 @@
   }
   
   .emergency-btn, .whatsapp-btn {
-    width: 90%;
+    width: 51%;
     padding: 6px;
     border-radius: 14px;
   }
